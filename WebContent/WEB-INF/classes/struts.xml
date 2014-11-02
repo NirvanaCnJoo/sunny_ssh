@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 配置为开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 配置扩展名为action -->
+    <!-- <constant name="struts.action.extension" value="action" /> -->
+    <constant name="struts.action.extension" value="do" />
+
+    <constant name="struts.ui.theme" value="simple" />
+
+    <package name="com.actions" namespace="/test" extends="struts-default">
+        <!-- 登录拦截器 -->
+        <!-- <interceptors name="checkLogin" class="checkLogin"> </interceptors> -->
+        <action name="test_*" class="testAction" method="{1}">
+            <result name="result">/WEB-INF/page/result.jsp</result>
+            <result name="acline">/WEB-INF/page/acline.jsp</result>
+            <result name="acline_json">/WEB-INF/page/acline_json.jsp</result>
+        </action>
+       
+        <!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+        <!-- <action name="test" class="testAction"> <result name="success">/WEB-INF/page/userAction/login.jsp</result> </action> <action name="userAction" class="userAction"> 
+            <result name="toIndex">/WEB-INF/page/main/main.jsp</result> <result name="deny">noPrivilegeError.jsp</result> </action> <action name="frameAction_*" class="frameAction" method="{1}"> 
+            <result name="top">/WEB-INF/page/main/top.jsp</result> <result name="left">/WEB-INF/page/main/left.jsp</result> <result name="content">/WEB-INF/page/main/content.jsp</result> 
+            </action> <action name="tablesAction_*" class="tablesAction" method="{1}"> <result name="line">/WEB-INF/page/tables/line.jsp</result> </action> <action name="testAction_*" class="testAction" 
+            method="{1}"> <result name="result">/result.jsp</result> </action> -->
+        <!-- <global-results> <result name="loginUI">/WEB-INF/page/userAction/login.jsp</result> <result name="noPrivilegeError">/noPrivilegeError.jsp</result> </global-results> -->
+        <!-- 配置全局的Result -->
+    </package>
+
+
+
+
+</struts>
+
+
